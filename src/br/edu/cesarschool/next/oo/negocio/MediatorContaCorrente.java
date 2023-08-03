@@ -37,10 +37,10 @@ public class MediatorContaCorrente {
     }
 
     public boolean stringNulaOuVazia(String dado){
-        if(dado == null || dado == ""){
-            return false;
-        } else{
+        if(dado == null || dado.trim().equals("")){
             return true;
+        } else{
+            return false;
         }
     }
 
