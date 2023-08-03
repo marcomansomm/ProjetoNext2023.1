@@ -57,4 +57,11 @@ public class ContaCorrente implements Serializable{
         this.saldo -= valor;
     }
 
+    @Override
+    public String toString() {
+        return "numero=" + numero + ", saldo=" + saldo + ", nomeCorrentista=" + nomeCorrentista;
+    }
+
+    
+
 }

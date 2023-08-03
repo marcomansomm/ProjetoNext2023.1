@@ -40,4 +40,11 @@ public class ContaPoupanca extends ContaCorrente{
         super.creditar(this.getSaldo() + valor * (1 + this.percentualBonus / 100));
         //saldo = saldo + valor *(1 + percentual de bônus / 100)
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + "percentualBonus=" + percentualBonus;
+    }
+
+    
 }
