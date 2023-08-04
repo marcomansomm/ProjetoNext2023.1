@@ -1,5 +1,6 @@
 package br.edu.cesarschool.next.oo.entidade;
 
+import java.io.Serializable;
 
 /*
  * Classe RegistroIdentificavel
@@ -8,7 +9,7 @@ package br.edu.cesarschool.next.oo.entidade;
     em cada uma das subsclasses desta classe, através da implementação obrigatória de um
     método abstrato.
  */
-public abstract class RegistroIdentificavel {
+public abstract class RegistroIdentificavel implements Serializable{
     
    public abstract String obterChave();
    
