@@ -2,7 +2,6 @@ package br.edu.cesarschool.next.oo.dao;
 
 import java.io.Serializable;
 
-import br.edu.cesarschool.next.oo.entidade.Produto;
 import br.edu.cesarschool.next.oo.entidade.RegistroIdentificavel;
 import br.edu.cesarschool.next.oo.persistenciaobjetos.CadastroObjetos;
 
@@ -77,4 +76,11 @@ Implementar seguindo o modelo do DAOProduto.
 		}
 		return regs;
     }
+    /*
+     * Alterar as classes DAOProduto (do projeto de referência) e DAOContaCorrente
+A “interface” destas classes devem ser mantidas, ou seja, as assinaturas dos seus métodos
+públicos devem permanecer exatamente como estão. A ideia é otimizar a implementação,
+evitando duplicação de código. Para isso, estas classes devem ter um atributo do tipo
+DAOGenerico. Ver modelo de implementação e exemplo com os facilitadores.
+     */
 }

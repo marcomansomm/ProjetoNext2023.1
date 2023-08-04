@@ -22,9 +22,13 @@ import br.edu.cesarschool.next.oo.persistenciaobjetos.CadastroObjetos;
  */
 
 public class DAOContaCorrente{
-    private CadastroObjetos cadastro = new CadastroObjetos(ContaCorrente.class);
+    private DAOGenerico daoGen = new DAOGenerico(ContaCorrente.class);
+    //CadastroObjeto cadastro = new CadastroObjeto(ContaCorrente.class);
+    //                                                          
 
     public boolean incluir(ContaCorrente conta){
+        return daoGen.incluir(conta);
+        /*
         ContaCorrente numeroBusca = buscar(conta.getNumero());
         if(numeroBusca != null){
             return false;
@@ -32,9 +36,12 @@ public class DAOContaCorrente{
             cadastro.incluir(conta, conta.getNumero());
             return true;
         }
+        */
     }
 
     public boolean alterar(ContaCorrente conta){
+        return daoGen.alterar(conta);
+        /*
         ContaCorrente numeroBusca = buscar(conta.getNumero());
         if(numeroBusca == null){
             return false;
@@ -42,18 +49,25 @@ public class DAOContaCorrente{
             cadastro.alterar(conta, conta.getNumero());
             return true;
         }
+        */
     }
 
     public ContaCorrente buscar(String numero){
+        return (ContaCorrente)daoGen.buscar(numero);
+        /*
         return (ContaCorrente)cadastro.buscar(numero);
+        */
     }
 
     public ContaCorrente[] buscarTodos(){
+        return (ContaCorrente[])daoGen.buscarTodos();
+        /*
         Serializable[] rets = cadastro.buscarTodos(ContaCorrente.class);
         ContaCorrente[] contas = new ContaCorrente[rets.length];
         for(int i = 0; i<rets.length; i++){
             contas[i] = (ContaCorrente)rets[i];
         }
         return contas;
+        */
     }
 }
