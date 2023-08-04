@@ -22,7 +22,7 @@ import br.edu.cesarschool.next.oo.persistenciaobjetos.CadastroObjetos;
  */
 
 public class DAOContaCorrente{
-    private CadastroObjetos cadastro = new CadastroObjetos();
+    private CadastroObjetos cadastro = new CadastroObjetos(ContaCorrente.class);
 
     public boolean incluir(ContaCorrente conta){
         ContaCorrente numeroBusca = buscar(conta.getNumero());
@@ -45,7 +45,7 @@ public class DAOContaCorrente{
     }
 
     public ContaCorrente buscar(String numero){
-        return (ContaCorrente)cadastro.buscar(ContaCorrente.class, numero);
+        return (ContaCorrente)cadastro.buscar(numero);
     }
 
     public ContaCorrente[] buscarTodos(){
