@@ -43,7 +43,7 @@ public class ContaPoupanca extends ContaCorrente{
 
     @Override
     public String toString() {
-        return super.toString() + "percentualBonus=" + percentualBonus;
+        return super.toString() + " percentualBonus=" + percentualBonus;
     }
 
     

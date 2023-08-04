@@ -62,7 +62,12 @@ public class MediatorContaCorrente {
             if(contaP.getPercentualBonus() < 0){
                 return "Conta Poupanca Sem percentual de bônus";
             } else {
-                return null;
+                boolean retorno = daoContaCorrente.incluir(contaP);
+                if(!retorno){
+                    return "Conta Já Existente!!";
+                }else {
+                    return null;
+                }   
             }
         } else {
             boolean retorno = daoContaCorrente.incluir(conta);
