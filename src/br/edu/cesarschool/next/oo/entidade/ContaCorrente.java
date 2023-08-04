@@ -13,7 +13,7 @@ Set para todos os atributos.
 void creditar(double valor): saldo = saldo + valor *(1 + percentual de bônus / 100)
  */
 
-public class ContaCorrente implements Serializable{
+public class ContaCorrente extends RegistroIdentificavel implements Serializable{
     
     private String numero;
     private double saldo;
@@ -62,6 +62,9 @@ public class ContaCorrente implements Serializable{
         return "numero=" + numero + ", saldo=" + saldo + ", nomeCorrentista=" + nomeCorrentista;
     }
 
-    
+    @Override
+    public String obterChave(){
+        return this.numero;
+    }
 
 }
