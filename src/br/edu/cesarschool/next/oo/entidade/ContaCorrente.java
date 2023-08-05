@@ -14,7 +14,7 @@ void creditar(double valor): saldo = saldo + valor *(1 + percentual de bônus / 
  */
 
 public class ContaCorrente extends RegistroIdentificavel implements Serializable{
-    
+    private static final long serialVersionUID = 1L;
     private String numero;
     private double saldo;
     private String nomeCorrentista;
@@ -24,6 +24,7 @@ public class ContaCorrente extends RegistroIdentificavel implements Serializable
     }
 
     public ContaCorrente(String numero, double saldo, String nomeCorrentista) {
+        super();
         this.numero = numero;
         this.saldo = saldo;
         this.nomeCorrentista = nomeCorrentista;
@@ -59,7 +60,7 @@ public class ContaCorrente extends RegistroIdentificavel implements Serializable
 
     @Override
     public String toString() {
-        return "numero=" + numero + ", saldo=" + saldo + ", nomeCorrentista=" + nomeCorrentista;
+        return "numero=" + numero + ", saldo=" + saldo + ", nomeCorrentista=" + nomeCorrentista + "Data="+ this.getDataHoraCriacao();
     }
 
     @Override

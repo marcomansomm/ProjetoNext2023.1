@@ -6,8 +6,8 @@ import br.edu.cesarschool.next.oo.entidade.Produto;
 import br.edu.cesarschool.next.oo.persistenciaobjetos.CadastroObjetos;
 
 public class DAOProduto {
-	private DAOGenerico daoGen = new DAOGenerico(Produto.class);
-	//														
+	CadastroObjetos cadastro = new CadastroObjetos(Produto.class);
+	private DAOGenerico daoGen = new DAOGenerico(Produto.class);											
 
 	public boolean incluir(Produto prod) {
 		return daoGen.incluir(prod);
@@ -33,6 +33,9 @@ public class DAOProduto {
 		}	
 		*/	
 	}
+	public boolean excluir(String codigo){
+		return daoGen.excluir(codigo);
+	}
 	public Produto buscar(String codigo) {
 		return (Produto)daoGen.buscar(codigo);
 		/*
@@ -40,14 +43,12 @@ public class DAOProduto {
 		*/
 	}
 	public Produto[] buscarTodos() {
-		return (Produto[])daoGen.buscarTodos();
-		/* 
+		//return (Produto[])daoGen.buscarTodos();
 		Serializable[] rets = cadastro.buscarTodos(Produto.class);
 		Produto[] prods = new Produto[rets.length];
 		for(int i=0; i<rets.length; i++) {
 			prods[i] = (Produto)rets[i];
 		}
 		return prods;
-		*/
 	}
 }

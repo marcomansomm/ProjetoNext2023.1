@@ -11,6 +11,7 @@ public class Produto extends RegistroIdentificavel implements Serializable {
 		
 	}
 	public Produto(String codigo, String nome, double preco) {
+		super();
 		this.codigo = codigo;
 		this.nome = nome;
 		this.preco = preco;
@@ -32,7 +33,7 @@ public class Produto extends RegistroIdentificavel implements Serializable {
 	}
 	@Override
 	public String toString() {
-		return nome + " , " + codigo + " , " + preco;
+		return nome + " , " + codigo + " , " + preco + ", "+ this.getDataHoraCriacao();
 	}
 	@Override
 	public String obterChave() {

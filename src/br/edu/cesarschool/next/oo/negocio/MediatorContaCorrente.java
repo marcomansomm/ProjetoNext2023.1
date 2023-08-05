@@ -1,5 +1,6 @@
 package br.edu.cesarschool.next.oo.negocio;
 
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -24,6 +25,13 @@ Se os dados estiverem válidos, incluir a conta corrente no mecanismo de persist
 o DAO. O retorno false do incluir do DAO indica que a chave da conta corrente (o seu
 número) já existe. Se isto ocorrer, retornar mensagem pertinente.
 Caso a inclusão seja realizada com sucesso, retornar null.*/
+
+/*
+ * Alterar as classes MediatorProduto (do projeto de referência) e MediatorContaCorrente
+Antes de incluir produto e conta corrente, setar o atributo dataHoraCriacao com a data e
+hora atuais. Pesquisar como obter a data atual. ATENÇÃO! A solução pode estar dentro do
+próprio tipo LocalDateTime.
+ */
 
 public class MediatorContaCorrente {
     private DAOContaCorrente daoContaCorrente = new DAOContaCorrente();
@@ -62,6 +70,7 @@ public class MediatorContaCorrente {
             if(contaP.getPercentualBonus() < 0){
                 return "Conta Poupanca Sem percentual de bônus";
             } else {
+                contaP.setDataHoraCriacao(LocalDateTime.now());
                 boolean retorno = daoContaCorrente.incluir(contaP);
                 if(!retorno){
                     return "Conta Já Existente!!";
@@ -70,6 +79,7 @@ public class MediatorContaCorrente {
                 }   
             }
         } else {
+            conta.setDataHoraCriacao(LocalDateTime.now());
             boolean retorno = daoContaCorrente.incluir(conta);
             if(!retorno){
                 return "Conta já existente";
@@ -138,6 +148,14 @@ valor na conta, alterar, no DAO, a conta, e retornar null.
                     return null;
                 }
             }
+        }
+    }
+
+    public String excluir(String numero){
+        if(stringNulaOuVazia(numero)){
+            return "Numero inexistente";
+        } else if(){
+            
         }
     }
 

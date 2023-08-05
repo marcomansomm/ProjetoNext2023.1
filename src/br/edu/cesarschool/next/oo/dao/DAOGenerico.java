@@ -55,6 +55,16 @@ obterChave().
         }
     }
 
+    public boolean excluir(String chave){
+        RegistroIdentificavel regBusca = buscar(chave);
+        if(regBusca == null){
+            return false;
+        } else {
+            cadastro.excluir(chave);
+            return true;
+        }
+    }
+
     /*
      * RegistroIdentificavel buscar(String chave)
 Implementar seguindo o modelo do DAOProduto.

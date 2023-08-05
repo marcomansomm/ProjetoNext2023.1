@@ -1,5 +1,6 @@
 package br.edu.cesarschool.next.oo.negocio;
 
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -11,17 +12,18 @@ public class MediatorProduto {
 	private DAOProduto daoProd = new DAOProduto();
 	public String incluir(Produto prod) {
 		if (prod == null) {
-			return "Produto não informado"; 
+			return "Produto nï¿½o informado"; 
 		} else if (stringNulaOuVazia(prod.getCodigo())) {
-			return "Código do produto não informado";
+			return "Cï¿½digo do produto nï¿½o informado";
 		} else if (stringNulaOuVazia(prod.getNome())) {
-			return "Nome do produto não informado"; 
+			return "Nome do produto nï¿½o informado"; 
 		} else if (prod.getPreco() <= 0) {
-			return "Preço inválido";
+			return "Preï¿½o invï¿½lido";
 		} else {
+			prod.setDataHoraCriacao(LocalDateTime.now());
 			boolean ret = daoProd.incluir(prod);
 			if (!ret) {
-				return "Produto já existente";
+				return "Produto jï¿½ existente";
 			} else {
 				return null;
 			}
@@ -29,13 +31,13 @@ public class MediatorProduto {
 	}
 	public String alterarPreco(double perc, String codigo) {
 		if (stringNulaOuVazia(codigo)) {
-			return "Código do produto não informado"; 
+			return "Cï¿½digo do produto nï¿½o informado"; 
 		} else if (perc < 0) {
-			return "Perecentual de aumento inválido";
+			return "Perecentual de aumento invï¿½lido";
 		} else {
 			Produto prod = daoProd.buscar(codigo);
 			if (prod == null) {
-				return "Produto não existente";
+				return "Produto nï¿½o existente";
 			} else {
 				prod.aumentarPreco(perc);
 				daoProd.alterar(prod);
